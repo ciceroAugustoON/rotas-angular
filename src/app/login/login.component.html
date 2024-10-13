@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <div class="mb-3 form-group">
+    <label for="username" class="form-label">Usuário</label>
+    <input type="text" class="form-control" name="username" id="username" ngModel required #name="ngModel">
+  </div>
+  <div class="mb-3 form-group">
+    <label for="password" class="form-label">Senha</label>
+    <input type="password" id="password" name="password" class="form-control" ngModel required #senha="ngModel">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<div *ngIf="loginForm.submitted && loginForm.invalid" class="alert alert-danger mt-3">
+  O formulário é inválido. Por favor, corrija os campos destacados.
+  </div>
+<div *ngIf="validLogin" class="alert alert-danger mt-3"> Usuário ou senha inválido</div>
